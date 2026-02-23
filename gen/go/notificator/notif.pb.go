@@ -110,10 +110,11 @@ func (x *ZeroBalanceResponse) GetUsers() []*User {
 }
 
 type LastConvRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ConvTimeout   int32                  `protobuf:"varint,1,opt,name=conv_timeout,json=convTimeout,proto3" json:"conv_timeout,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	MinConvTimeout int32                  `protobuf:"varint,1,opt,name=min_conv_timeout,json=minConvTimeout,proto3" json:"min_conv_timeout,omitempty"`
+	MaxConvTimeout int32                  `protobuf:"varint,2,opt,name=max_conv_timeout,json=maxConvTimeout,proto3" json:"max_conv_timeout,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *LastConvRequest) Reset() {
@@ -146,9 +147,16 @@ func (*LastConvRequest) Descriptor() ([]byte, []int) {
 	return file_notificator_notif_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *LastConvRequest) GetConvTimeout() int32 {
+func (x *LastConvRequest) GetMinConvTimeout() int32 {
 	if x != nil {
-		return x.ConvTimeout
+		return x.MinConvTimeout
+	}
+	return 0
+}
+
+func (x *LastConvRequest) GetMaxConvTimeout() int32 {
+	if x != nil {
+		return x.MaxConvTimeout
 	}
 	return 0
 }
@@ -249,9 +257,10 @@ const file_notificator_notif_proto_rawDesc = "" +
 	"\x12ZeroBalanceRequest\x12\x1b\n" +
 	"\tzero_time\x18\x01 \x01(\x05R\bzeroTime\"8\n" +
 	"\x13ZeroBalanceResponse\x12!\n" +
-	"\x05users\x18\x01 \x03(\v2\v.notif.UserR\x05users\"4\n" +
-	"\x0fLastConvRequest\x12!\n" +
-	"\fconv_timeout\x18\x01 \x01(\x05R\vconvTimeout\"5\n" +
+	"\x05users\x18\x01 \x03(\v2\v.notif.UserR\x05users\"e\n" +
+	"\x0fLastConvRequest\x12(\n" +
+	"\x10min_conv_timeout\x18\x01 \x01(\x05R\x0eminConvTimeout\x12(\n" +
+	"\x10max_conv_timeout\x18\x02 \x01(\x05R\x0emaxConvTimeout\"5\n" +
 	"\x10LastConvResponse\x12!\n" +
 	"\x05users\x18\x01 \x03(\v2\v.notif.UserR\x05users\"\x16\n" +
 	"\x04User\x12\x0e\n" +

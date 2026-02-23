@@ -19,7 +19,8 @@ message ZeroBalanceResponse {
 }
 
 message LastConvRequest {
-    int32 conv_timeout = 1;
+    int32 min_conv_timeout = 1;
+    int32 max_conv_timeout = 2;
 }
 
 message LastConvResponse {
