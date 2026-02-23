@@ -23,6 +23,7 @@ const (
 
 type ZeroBalanceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	ZeroTime      int32                  `protobuf:"varint,1,opt,name=zero_time,json=zeroTime,proto3" json:"zero_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -55,6 +56,13 @@ func (x *ZeroBalanceRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ZeroBalanceRequest.ProtoReflect.Descriptor instead.
 func (*ZeroBalanceRequest) Descriptor() ([]byte, []int) {
 	return file_notificator_notif_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ZeroBalanceRequest) GetZeroTime() int32 {
+	if x != nil {
+		return x.ZeroTime
+	}
+	return 0
 }
 
 type ZeroBalanceResponse struct {
@@ -237,8 +245,9 @@ var File_notificator_notif_proto protoreflect.FileDescriptor
 
 const file_notificator_notif_proto_rawDesc = "" +
 	"\n" +
-	"\x17notificator/notif.proto\x12\x05notif\"\x14\n" +
-	"\x12ZeroBalanceRequest\"8\n" +
+	"\x17notificator/notif.proto\x12\x05notif\"1\n" +
+	"\x12ZeroBalanceRequest\x12\x1b\n" +
+	"\tzero_time\x18\x01 \x01(\x05R\bzeroTime\"8\n" +
 	"\x13ZeroBalanceResponse\x12!\n" +
 	"\x05users\x18\x01 \x03(\v2\v.notif.UserR\x05users\"4\n" +
 	"\x0fLastConvRequest\x12!\n" +
