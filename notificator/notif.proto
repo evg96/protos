@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package notif;
+
+option go_package = "github.com/evg96/protos/ai-assist_notificator";
+
+
+service Notificator {
+    rpc ZeroBalance (ZeroBalanceRequest) returns (ZeroBalanceResponse);
+    rpc LastConversation (LastConvRequest) returns (LastConvResponse);
+}
+
+message ZeroBalanceRequest {
+    
+}
+
+message ZeroBalanceResponse {
+    repeated User users = 1;
+}
+
+message LastConvRequest {
+    int32 conv_timeout = 1;
+}
+
+message LastConvResponse {
+    repeated User users = 1;
+}
+
+message User {
+    int64 id = 1;
+}
